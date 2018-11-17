@@ -1,0 +1,45 @@
+{
+    "name": "package-downloader",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true,
+        "jsxSingleQuote": true
+    },
+    "scripts": {
+        "build-dev": "webpack --watch",
+        "clean": "rimraf dist"
+    },
+    "devDependencies": {
+        "@types/copy-webpack-plugin": "^4.4.2",
+        "@types/html-webpack-plugin": "^3.2.0",
+        "@types/mini-css-extract-plugin": "^0.2.0",
+        "@types/node": "^10.12.8",
+        "@types/webpack": "^4.4.19",
+        "copy-webpack-plugin": "^4.6.0",
+        "css-loader": "^1.0.1",
+        "html-webpack-plugin": "^3.2.0",
+        "less": "^3.8.1",
+        "less-loader": "^4.1.0",
+        "mini-css-extract-plugin": "^0.4.4",
+        "rimraf": "^2.6.2",
+        "source-map-loader": "^0.2.4",
+        "style-loader": "^0.23.1",
+        "ts-loader": "^5.3.0",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "tslint-config-prettier": "^1.16.0",
+        "typescript": "^3.1.6",
+        "webpack": "^4.25.1",
+        "webpack-cli": "^3.1.2",
+        "webpack-dev-server": "^3.1.10"
+    },
+    "dependencies": {
+        "@types/react": "^16.7.6",
+        "@types/react-dom": "^16.0.9",
+        "react": "^16.6.3",
+        "react-dom": "^16.6.3"
+    }
+}
