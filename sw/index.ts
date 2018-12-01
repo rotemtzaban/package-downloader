@@ -1,4 +1,3 @@
-import { string } from 'prop-types';
 
 const selfRef = self as ServiceWorkerGlobalScope;
 
