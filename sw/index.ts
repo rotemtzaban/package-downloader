@@ -1,4 +1,3 @@
-
 const selfRef = self as ServiceWorkerGlobalScope;
 
 const map = new Map<string, Data>();
@@ -58,7 +57,8 @@ function createStream(
 ): ReadableStream {
     return new ReadableStream({
         start(controller) {
-            port.onmessage = ({ data }) => {
+            port.onmessage = ev => {
+                const data = ev.data;
                 if (data === 'end') {
                     resolve();
                     controller.close();

@@ -1,4 +1,4 @@
-export function downloadStream<T = any>(filename: string): WritableStream<T> {
+export function downloadStream(filename: string): WritableStream<ArrayBuffer> {
     const channel = new MessageChannel();
     navigator.serviceWorker
         .register('sw.bundle.js', {
@@ -9,7 +9,7 @@ export function downloadStream<T = any>(filename: string): WritableStream<T> {
             if (registration.active) {
                 registration.active.postMessage({ filename }, [channel.port2]);
             }
-
+            
             if (regWaiting) {
                 regWaiting.onstatechange = ev => {
                     if (regWaiting.state === 'activated') {
@@ -20,7 +20,7 @@ export function downloadStream<T = any>(filename: string): WritableStream<T> {
                 };
             }
         });
-    return new WritableStream<T>({
+    return new WritableStream<ArrayBuffer>({
         start() {
             return new Promise(resolve => {
                 channel.port1.onmessage = ev => {
@@ -36,7 +36,7 @@ export function downloadStream<T = any>(filename: string): WritableStream<T> {
             });
         },
         write(data) {
-            channel.port1.postMessage(data);
+            channel.port1.postMessage(data, [data]);
         },
         close() {
             channel.port1.postMessage('end');
